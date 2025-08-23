@@ -35,7 +35,7 @@ guess_label.place(x=10,y=103)
 guess_entry = Entry(window, width=25)
 guess_entry.place(x=80,y=100)
 
-check_button = Button(window, text="Check", bg="red", fg="red", font=("Helvetica", 10, "bold"))
+check_button = Button(window, text="Check", bg="red", fg="red", font=("Helvetica", 10, "bold"),command=check_awn)
 check_button.place(x=330,y=103)
 
 high_low = Label(window, text="", font=("Helvetica", 12), bg="light gray",fg="black")
