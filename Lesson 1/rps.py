@@ -1,5 +1,14 @@
 from tkinter import *
 
+def rockcliked():
+    player_choice.config(text="You Selected Rock")
+
+def papercliked():
+    player_choice.config(text="You Selected Paper")
+
+def scissorscliked():
+    player_choice.config(text="You Selected Sciccors")
+
 window = Tk()
 window.geometry("800x400")
 window.configure(bg="white")
@@ -14,13 +23,13 @@ subtitle.grid(row=1, column=0, columnspan=5, pady=5)
 options = Label(window, text="Your Options", font=("Helvetica", 12), bg="white")
 options.grid(row=2, column=1, pady=20)
 
-rock = Button(window, text="Rock", width=10, height=2, bg="pink")
+rock = Button(window, text="Rock", width=10, height=2, bg="pink", command=rockcliked)
 rock.grid(row=2, column=2, padx=10)
 
-paper = Button(window, text="Paper", width=10, height=2, bg="lightgrey")
+paper = Button(window, text="Paper", width=10, height=2, bg="lightgrey", command=papercliked)
 paper.grid(row=2, column=3, padx=10)
 
-scissors = Button(window, text="Scissors", width=10, height=2, bg="lightblue")
+scissors = Button(window, text="Scissors", width=10, height=2, bg="lightblue", command=scissorscliked)
 scissors.grid(row=2, column=4, padx=10)
 
 score_label = Label(window, text="Score", font=("Helvetica", 12), bg="white")
