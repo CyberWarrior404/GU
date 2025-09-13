@@ -1,0 +1,58 @@
+from tkinter import*
+from tkinter.ttk import Combobox
+
+
+really=0
+
+def printTable(droplist):
+    global really
+    all_results = ""
+    try:
+        gen = int(droplist.get())
+        for i in range(1, 11):
+            result = gen * i
+            all_results += f"{gen} * {i} = {result}\n"
+        r3sult.config(text=all_results)
+        really=0
+    except ValueError:
+        r3sult.config(text="Please select a valid number from the dropdown list.")
+        really+=0.1
+    if really>1:
+        r3sult.config(text="Really bro")
+    if really>5:
+        r3sult.config(text="BRO HOW MANY TIMES ARE U GIONG TO CLICK THIS BUTTON JUST TYPE A WHOLE NUMBER")
+    if really>7.5:
+        r3sult.config(text="bro plese just type smth ")
+    if really>7.7:
+        r3sult.config(text="what is wrong with u")
+    if really>8:
+        r3sult.config(text="...")
+    if really>10:
+        r3sult.config(text="DO IT ONE MORE TIME AND I SWEAR ILL QUIT")
+    if really>10.3:
+        window.destroy()
+
+
+
+window= Tk()
+window.geometry("500x700")
+
+heading=Label(window,text="Multiplication Table Bot",font=("Arial",25,"bold"))
+heading.pack(side="top")
+
+frame=Frame(window)
+frame.pack(side="top")
+
+placeholder=Label(frame,text="Choose a number")
+placeholder.grid(row=0,column=0)
+
+genrate=Button(frame,text="Generate",command=lambda: printTable(droplist))
+genrate.grid(row=1,column=1)
+
+droplist=Combobox(frame, values=[1,2,3,4,5,6,7,8,9,10])
+droplist.grid(row=0,column=1)
+
+r3sult=Label(frame,text="hi im the mt bot your multiplication table will appear here",fg="white",bg="grey",font=("Arial",20,"bold"),justify=LEFT)
+r3sult.grid(row=3,column=1)
+
+window.mainloop()
