@@ -74,10 +74,10 @@ player_choice.grid(row=3, column=2)
 computer_choice = Label(window, text="Computer Selected:", font=("Helvetica", 12),fg="black",bg="white")
 computer_choice.grid(row=4, column=2)
 
-player_score = Label(window, text="Player Score:-", font=("Helvetica", 12),fg="black",bg="white")
+player_score = Label(window, text="Player Score: 0", font=("Helvetica", 12),fg="black",bg="white")
 player_score.grid(row=3, column=3, padx=20)
 
-computer_score = Label(window, text="Computer Score:-", font=("Helvetica", 12),fg="black",bg="white")
+computer_score = Label(window, text="Computer Score: 0", font=("Helvetica", 12),fg="black",bg="white")
 computer_score.grid(row=4, column=3, padx=20)
 
 window.mainloop()
