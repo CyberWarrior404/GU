@@ -1,6 +1,18 @@
 from tkinter import *
 from tkinter import ttk
 
+def add():
+    name=name_entry.get()
+    address=address_entry.get()
+    mobile=mobile_entry.get()
+    email=email_entry.get()
+    birthday=birthday_entry.get()
+    name_entry.delete(0,END)
+    address_entry.delete(0,END)
+    mobile_entry.delete(0,END)
+    email_entry.delete(0,END)
+    birthday_entry.delete(0,END)
+    listbox.insert(END,name)
 
 window = Tk()
 window.title("Address Book")
@@ -15,7 +27,7 @@ open_btn.grid(row=0, column=1, padx=10, pady=5,)
 
 
 listbox = Listbox(window, width=35, height=15)
-listbox.grid(row=1, column=0, rowspan=6, padx=10, pady=5, )
+listbox.grid(row=1, column=0, rowspan=6, padx=10, pady=5)
 
 
 Label(window, text="Name:").grid(row=1, column=1, padx=5, pady=5)
@@ -44,7 +56,7 @@ edit_btn.grid(row=7, column=0, padx=10, pady=5)
 delete_btn = Button(window, text="Delete", width=10)
 delete_btn.grid(row=7, column=0,padx=10, pady=5)
 
-update_btn = Button(window, text="Update/Add", width=12)
+update_btn = Button(window, text="Update/Add", width=12,command=add)
 update_btn.grid(row=7, column=2, padx=10, pady=5)
 
 save_btn = Button(window, text="Save", width=50)
