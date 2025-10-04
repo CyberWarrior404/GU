@@ -1,4 +1,8 @@
 from tkinter import *
+import tkinter.messagebox
+import tkinter.filedialog 
+
+items=[]
 
 window = Tk()
 window.geometry("1000x750")
@@ -6,22 +10,43 @@ window.title("Item Manager")
 
 def add():
     item=item_entry.get()
+    if not item :
+        tkinter.messagebox.showerror("HOW INVALD")
+    items.append(item)
     listbox.insert(END,item)
     item_entry.delete(0,END)
 
 def clear():
+    items.clear()
     listbox.delete(0,END)
 
 def delete():
     S_item=listbox.curselection()
+    print(S_item)
+    items.pop(S_item[0])
     listbox.delete(S_item)
 
 def edit():
     edit=listbox.curselection()
     meti=listbox.get(edit)
+    items.pop(edit[0])
     item_entry.delete(0,END)
     item_entry.insert(END,meti)
     listbox.delete(edit)
+
+def opf():
+    file=tkinter.filedialog.askopenfile(title="Open File")
+    if file:
+        contnent=file.readlines()
+        clear()
+        for item in contnent:
+            listbox.insert(END,item)
+
+def svf():
+    file=tkinter.filedialog.asksaveasfile(defaultextension=".txt")
+    if file:
+        for item in items:  
+            print(item,file=file)
 
 item_entry_text = Label(window, text="Enter Item:", font=("Arial", 12))
 item_entry_text.pack(pady=5)
@@ -50,10 +75,10 @@ listbox.pack(pady=10)
 bottom_frame = Frame(window, bg="lightgray")
 bottom_frame.pack(pady=10)  
 
-open_button = Button(bottom_frame, text="OPEN FILE", bg="deepskyblue", fg="deepskyblue", width=15, height=2)
+open_button = Button(bottom_frame, text="OPEN FILE", bg="deepskyblue", fg="deepskyblue", width=15, height=2,command=opf)
 open_button.grid(row=0, column=0, padx=10)
 
-save_button = Button(bottom_frame, text="SAVE FILE", bg="slategray", fg="slategray", width=15, height=2)
+save_button = Button(bottom_frame, text="SAVE FILE", bg="slategray", fg="slategray", width=15, height=2,command=svf)
 save_button.grid(row=0, column=1, padx=10)
 
 window.mainloop()
